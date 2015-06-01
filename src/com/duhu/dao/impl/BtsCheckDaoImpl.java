@@ -69,7 +69,7 @@ public class BtsCheckDaoImpl implements BtsCheckDao {
 						+"huanjing_qingjie,huanjing_xiaofang,huanjing_qita,tiankui_xian,tiankui_mifeng,"
 						+"tiankui_jiedi,tiankui_wanqu,tieta,kongtiao_gaojing,kongtiao_yunxing,kongtiao_qingjie,"
 						+"donglixitong,fangleijiedi,chuanshu_banka,chuanshu_gaojing,chuanshu_jietou  from tbl_btscheck "
-						+ "where id=(select max(id) from tbl_btscheck)and btsid =?";
+						+ "where id=(select max(id) from tbl_btscheck where btsid = ?)";
 		PreparedStatement ps = connection.prepareCall(sql);
 		ps.setInt(1, btsid);
 		ps.execute();
