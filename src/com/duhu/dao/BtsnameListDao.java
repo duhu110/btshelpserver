@@ -8,4 +8,6 @@ import com.mysql.jdbc.Connection;
 
 public interface BtsnameListDao {
 	public List<Btsname> slect(Connection connection) throws SQLException;
+
+	public String slect(Connection connection, int btsid) throws SQLException;
 }

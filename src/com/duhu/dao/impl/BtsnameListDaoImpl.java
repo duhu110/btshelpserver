@@ -30,4 +30,17 @@ public class BtsnameListDaoImpl implements BtsnameListDao {
 		return list;
 	}
 
+	@Override
+	public String slect(Connection connection, int btsid) throws SQLException {
+		String name = null;
+		String sql = "SELECT btsname  FROM tbl_basicdata where btsid = ?";
+		PreparedStatement ps = connection.prepareCall(sql);
+		ps.setInt(1, btsid);
+		ps.execute();
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {  
+		name = rs.getString(1);}
+		return name;
+	}
+
 }
